@@ -16,3 +16,17 @@ t = np.linspace( 0, (n-1)*dt, n)
 y = np.sin(2 * np.pi * f * t) + np.cos(2 * np.pi * f * t * t)
 noise = 1.4*(np.random.rand(n)+0.7)
 y  =  y + noise
+
+plt.plot(y,t)
+
+fourier= []
+
+for i in range(0,len(t)):
+    for j in range(0,n-1):
+        valor = y[j]*np.exp((t[i], j * 2*np.pi*j) + valor)
+        fourier.append(valor)
+
+
+for i in range(0,len(fourier)):
+    if(fourier[i]>1000):
+        fourier[i]= 0 
